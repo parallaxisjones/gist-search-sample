@@ -1,0 +1,16 @@
+type Gist {
+    url: String!
+    id: String!
+    created_at: String!
+}
+
+type Query {
+  helloWorld: String!
+  userGists(username: String!): [Gist]
+  getGist(gistId: String!): Gist
+}
+
+type Mutation {
+    starGist(gistId: String!): String!
+    unstarGist(gistId: String!): String!
+}

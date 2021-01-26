@@ -1,0 +1,35 @@
+.Nav {
+    text-align: center;
+  }
+  
+  @media (prefers-reduced-motion: no-preference) {
+    .Nav-logo {
+      animation: Nav-logo-spin infinite 20s linear;
+    }
+  }
+  
+  .Nav-header {
+    background-color: #282c34;
+    min-width: 100vw;
+    height: 10vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+  }
+  
+  .Nav-link {
+    color: #61dafb;
+  }
+  
+  @keyframes Nav-logo-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  

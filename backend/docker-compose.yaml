@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  postgres:
+    image: postgres:11.10
+    ports:
+      - "55432:5432"
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: postgresql
+      POSTGRES_DB: gister
+  graphql:
+    depends_on:
+      - "postgres"
+    build: .
+    ports:
+      - "3000:3000"
