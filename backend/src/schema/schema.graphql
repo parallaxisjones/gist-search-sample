@@ -1,7 +1,24 @@
+type File {
+  filename: String!
+  type: String!
+  language: String!
+  raw_url: String!
+  size: Int!
+}
+
+type Owner {
+  login: String!
+  avatar_url: String!
+  gists_url: String!
+}
+
 type Gist {
-    url: String!
-    id: String!
-    created_at: String!
+  url: String!
+  id: String!
+  created_at: String!
+  files: [File]
+  owner: Owner
+  description: String!
 }
 
 type Query {
@@ -11,6 +28,6 @@ type Query {
 }
 
 type Mutation {
-    starGist(gistId: String!): String!
-    unstarGist(gistId: String!): String!
+  starGist(gistId: String!): String!
+  unstarGist(gistId: String!): String!
 }

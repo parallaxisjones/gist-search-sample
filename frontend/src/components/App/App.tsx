@@ -1,22 +1,36 @@
 import React from 'react';
-import logo from './logo.svg';
+import { ApolloProvider } from '@apollo/client';
 import './App.css';
-import { Nav, Body } from '..';
-
-import { ApolloProvider, ApolloClient, InMemoryCache } from '@apollo/client';
-const uri = 'http://localhost:3000/graphql';
-const client = new ApolloClient({
-  uri,
-  cache: new InMemoryCache()
-});
-
+import { Nav, Body, GistList, GistViewer } from '..';
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import client from '../../apollo/client';
 
 function App() {
+
+  const HomeScreen = () => {
+    return (<GistList username="parallaxisjones" />);
+  }
+  
+  const Favorites = () => {
+    return (<div>hi favorites</div>);
+  }
+  
+  const GistView = ({ match }: any) => {
+    return (<GistViewer gistId={match.params.id} />);
+  }
+  
+
   return (
     <ApolloProvider client={client}>
       <div className="App">
-        <Nav />
-        <Body />
+        <Router>
+          <Nav />
+          <Body>
+            <Route path="/" exact component={HomeScreen} />
+            <Route path="/favorites" exact component={Favorites} />
+            <Route path="/gist/:id" component={GistView} />
+          </Body>
+        </Router>
       </div>
     </ApolloProvider>
   );

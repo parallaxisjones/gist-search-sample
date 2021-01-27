@@ -3,9 +3,6 @@ import { Gist } from './lib/gist';
 
 const resolverMap: IResolvers = {
   Query: {
-    checkStars(_: void, { gistId }) {
-      return Gist.starCheck(gistId);
-    },
     getGist(_: void, { gistId }) {
       return Gist.getById(gistId);
     },

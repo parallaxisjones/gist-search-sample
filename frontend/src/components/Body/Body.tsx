@@ -1,12 +1,10 @@
 import React from 'react';
 import './Body.css';
-import {Gist} from '..';
 
-function Body() {
+export const Body: React.FC = ({ children }) => {
   return (
     <section className="Body">
-        <div>I am body</div>
-        <Gist />
+      {children}
     </section>
   );
 }

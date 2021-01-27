@@ -40,7 +40,7 @@ interface GistResponse {
     git_pull_url: string;
     git_push_url: string;
     html_url: string;
-    files?: Files;
+    files: Files;
     public: boolean;
     created_at: string;
     updated_at: string;
@@ -107,10 +107,17 @@ export class Gist {
     url: string;
     created_at: string;
     id: string;
+    files: File[] = [];
+    html_url: string;
+    owner: Owner;
     constructor(data: GistResponse) {
         this.url = data.url;
         this.id = data.id;
         this.created_at = data.created_at;
+        this.html_url = data.html_url;
+        this.owner = data.owner;
+        console.log(data);
+        this.files = Object.values(data.files);
     }
     static toGist(gist: GistResponse){ return new Gist(gist) };
 
@@ -139,7 +146,7 @@ export class Gist {
 
     public static async getForUser(username: string, options?: GistAPiOpts) {
         const response = await Gist.get(`users/${username}/gists`, options);
-        return response.map(Gist.toGist) as Gist[];
+        return (response || []).map(Gist.toGist) as Gist[];
     }
 
     public static async getById(gistId: string, options?: GistAPiOpts) {
