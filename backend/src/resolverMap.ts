@@ -30,6 +30,12 @@ const resolverMap: IResolvers = {
       favToSave.owner = username;
 
       return favRepo.save(favToSave);
+    },
+    unfavoriteGist: async (_: void, { favoriteId }) => {
+      const favRepo = getRepository(Favorite);
+      const fav = await favRepo.delete(favoriteId);
+
+      return (fav.affected && fav.affected > 0);
     }
   }
 };

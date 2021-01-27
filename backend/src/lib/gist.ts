@@ -116,7 +116,6 @@ export class Gist {
         this.created_at = data.created_at;
         this.html_url = data.html_url;
         this.owner = data.owner;
-        console.log(data);
         this.files = Object.values(data.files);
     }
     static toGist(gist: GistResponse){ return new Gist(gist) };

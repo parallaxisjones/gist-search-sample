@@ -2,14 +2,14 @@ import React from 'react';
 import { Gist } from './Gist';
 import { Link } from "react-router-dom";
 interface GistListViewProps {
-  gist: Gist;
+  gist?: Gist;
+  gistId: string;
 }
 
-export const GistListView: React.FunctionComponent<GistListViewProps> = function GistListView({ gist: { url, id, files, owner, description } }) {
+export const GistListView: React.FunctionComponent<GistListViewProps> = function GistListView({ gist, gistId }) {
     return (
-        <div className={`gist-${id}`}>
-          <p>{description}</p>
-          <Link to={`/gist/${id}`}>{url}</Link>
+        <div className={`gist-${gistId}`}>
+          <Link to={`/gist/${gistId}`}>{gist ? gist.url : gistId}</Link>
         </div>
       );
 }

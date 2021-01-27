@@ -30,7 +30,7 @@ const UserList: React.FC<GistListProps> = ({ username }) => {
 
     return (
         <div>
-            {data!.gists.map((gist) => ( <GistListView key={gist.id} gist={gist} />))}
+            {data!.gists.map((gist) => ( <GistListView key={gist.id} gist={gist} gistId={gist.id} />))}
         </div>
     );
 }

@@ -1,27 +1,15 @@
-/* eslint-disable react-hooks/rules-of-hooks */
-import { useEffect, useState } from "react"
 import { File } from "../components/Gist/Gist";
+function getFileContent(content: { content: string, filename: string, url: string}, file: File) {
 
-interface Descriptor {
-  content: string;
-  filename: string;
-  url: string;
-}
+    async function fetchData(file: File) {
+      const response = await fetch(file.raw_url);
+      const text = await response.text();
+      content.content = text;
+      content.filename = file.filename;
+      content.url = file.raw_url;
+    }
 
-function getFileContent(file: File) {
-    const [content, setContent] = useState<Descriptor>();
-      useEffect(() => {
-        async function fetchData(file: File) {
-          const response = await fetch(file.raw_url);
-          const text = await response.text();
-          setContent({
-            url: file.raw_url,
-            content: text,
-            filename: file.filename
-          });
-        }
-        fetchData(file);
-      });
+    fetchData(file);
     return content;
 }
 

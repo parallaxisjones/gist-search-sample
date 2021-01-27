@@ -38,4 +38,5 @@ type Mutation {
   starGist(gistId: String!): String!
   unstarGist(gistId: String!): String!
   favoriteGist(username: String!, gistId: String!): Favorite!
+  unfavoriteGist(username: String!, gistId: String!): Boolean!
 }
