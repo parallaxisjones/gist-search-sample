@@ -8,7 +8,7 @@ interface GistListViewProps {
 
 export const GistListView: React.FunctionComponent<GistListViewProps> = function GistListView({ gist, gistId }) {
     return (
-        <div className={`gist-${gistId}`}>
+        <div className={`gist gist-${gistId}`}>
           <Link to={`/gist/${gistId}`}>{gist ? gist.url : gistId}</Link>
         </div>
       );

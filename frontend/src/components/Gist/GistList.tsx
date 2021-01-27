@@ -37,5 +37,5 @@ const UserList: React.FC<GistListProps> = ({ username }) => {
 
 export const GistList: React.FunctionComponent<ListProps> = function Gist({ username }) {
     const query = useQuery<{ searchQuery: string }>(GET_SEARCH_STATE);
-    return query.data?.searchQuery ? (<UserList username={query.data?.searchQuery} />) : (<span>please search</span>);
+    return query.data?.searchQuery ? (<UserList username={query.data?.searchQuery} />) : (<span>please search for a gist and click the search button</span>);
 }
