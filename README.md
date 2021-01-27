@@ -14,7 +14,7 @@ There is a graqhql playground included at `http://localhost:3000/graphql`
 3. for the frontend 
 `cd frontend && yarn && yarn start`
 
-The backend dev server and frontend dev server both want to start on port `3000`, but 
+The backend dev server and frontend dev server both want to start on port `3000`, but the react dev server will ask in you would prefer another port and start on 3001
 
 The UI has some rough edges, I was shooting for mostly feature complete.
 
