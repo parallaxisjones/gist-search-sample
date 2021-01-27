@@ -3,16 +3,18 @@
 ## running the project
 1. clone the project
 
-2. for the frontend 
-`cd frontend && yarn && yarn start`
-
-3. for the backend
+2. for the backend
 There is a race condition in with the docker compose file spinning up the postgres container in time for the app to contact it. Because of this `docker-compose up` must be run twice.
 There is a workaround for this with programs like `dockerize` that will make the container wait, but that was out of the scope of the project to address. It can be fixed by the following
 `cd backed && docker-compose up`
 `ctrl-c` to kill, `docker-compose up` again to bring the app up.
 
-There is a graqhql playground includded at `http://localhost:3000`
+There is a graqhql playground included at `http://localhost:3000/graphql`
+
+3. for the frontend 
+`cd frontend && yarn && yarn start`
+
+The backend dev server and frontend dev server both want to start on port `3000`, but 
 
 The UI has some rough edges, I was shooting for mostly feature complete.
 
