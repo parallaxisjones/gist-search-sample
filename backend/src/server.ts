@@ -7,11 +7,11 @@ import { createServer } from 'http';
 import compression from 'compression';
 import cors from 'cors';
 import schema from './schema';
-// import dbConnection from './db/connection';
+import dbConnection from './db/connection';
 
 const config = { port: process.env.APP_PORT };
 const startServer = async () => {
-    // const db = await dbConnection();
+    const db = await dbConnection();
     console.log("\n🚀 connected to db")
     const app = express();
     const server = new ApolloServer({

@@ -12,6 +12,12 @@ type Owner {
   gists_url: String!
 }
 
+type Favorite {
+  id: String!
+  gist: String!
+  owner: String!
+}
+
 type Gist {
   url: String!
   id: String!
@@ -24,10 +30,12 @@ type Gist {
 type Query {
   helloWorld: String!
   userGists(username: String!): [Gist]
+  getFavorites(username: String!): [Favorite]
   getGist(gistId: String!): Gist
 }
 
 type Mutation {
   starGist(gistId: String!): String!
   unstarGist(gistId: String!): String!
+  favoriteGist(username: String!, gistId: String!): Favorite!
 }
