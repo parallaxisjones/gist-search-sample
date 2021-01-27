@@ -1,7 +1,7 @@
 import React from 'react';
 import { ApolloProvider } from '@apollo/client';
 import './App.css';
-import { Nav, Body, GistList, GistViewer } from '..';
+import { Nav, Body, GistList, GistViewer, Favorites as FavoriteGists } from '..';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import client from '../../apollo/client';
 
@@ -12,7 +12,7 @@ function App() {
   }
   
   const Favorites = () => {
-    return (<div>hi favorites</div>);
+    return (<FavoriteGists />);
   }
   
   const GistView = ({ match }: any) => {
