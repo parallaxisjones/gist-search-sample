@@ -1,7 +1,4 @@
 import React from 'react';
-import { useQuery, useMutation } from '@apollo/client';
-import { GET_GIST_BY_ID } from '../../operations/queries/getGist';
-import { Gist } from './Gist';
 import { CREATE_FAVORITE } from '../../operations/mutations/createFavorite';
 import { REMOVE_FAVORITE } from '../../operations/mutations/removeFavorite';
 import { File } from "./Gist";
